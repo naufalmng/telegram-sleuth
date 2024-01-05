@@ -9,9 +9,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "telegram_group_sleuth"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
-  { name="Naufal Hanif", email="naufalmng@gmail.com" },
+  { name="M Naufal Hanif", email="naufalmng@gmail.com" },
 ]
 description = "Extract and analyze data from Telegram group chats"
 readme = "README.md"
