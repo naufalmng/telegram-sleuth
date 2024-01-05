@@ -1,0 +1,27 @@
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "telethon",
+    "beauty-print",
+    "python-dateutil"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "telegram_group_sleuth"
+version = "0.0.1"
+authors = [
+  { name="Naufal Hanif", email="naufalmng@gmail.com" },
+]
+description = "Extract and analyze data from Telegram group chats"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/naufalmng/telegram-group-sleuth"
+Issues = "https://github.com/naufalmng/telegram-group-sleuth/issues"
