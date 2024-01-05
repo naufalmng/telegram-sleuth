@@ -8,8 +8,8 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "telegram_group_sleuth"
-version = "0.0.2"
+name = "telegram_sleuth"
+version = "0.0.1"
 authors = [
   { name="M Naufal Hanif", email="naufalmng@gmail.com" },
 ]

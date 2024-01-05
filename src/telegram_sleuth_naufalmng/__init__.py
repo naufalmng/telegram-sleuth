@@ -101,7 +101,7 @@ class Sleuth:
             return self.__data_dict
         except ValueError as e:  # Catch an error
             raise f"Error -> {e}"
-        except Exception as error:
+        except Exception as error: # Catch an exception
             raise error
         except ApiIdInvalidError as invalid_api:  # catch if api_id or api_hash is invalid
             raise invalid_api
