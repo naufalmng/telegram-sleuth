@@ -20,7 +20,7 @@ The source code is hosted on GitHub at: https://github.com/naufalmng/telegram-gr
 Install with PyPI
 
 ```bash
-  pip install telegram-group-sleuth
+  pip install telegram-sleuth
 ```
     
 ## Usage
