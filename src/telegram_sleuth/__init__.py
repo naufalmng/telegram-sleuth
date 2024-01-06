@@ -79,7 +79,8 @@ class Sleuth:
                             download_path = self.__get_download_path(file_type)  # Get appropriate downloaded item path or default
 
                             file = await message.download_media(file=download_path)  # Download the file
-                            attached_file = f'{username} sent an {file_type}: {file}'
+                            attached_file = (f'{(message.date.astimezone(tzlocal()))} - {message.sender.username}:'
+                                             f' sent a {file_type}: {file}') # format the attached file message
 
                         if username not in self.__data_dict:
                             self.__data_dict[username] = []
