@@ -9,7 +9,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "telegram_sleuth"
-version = "0.0.1.post3"
+version = "0.0.1.post5"
 authors = [
   { name="M Naufal Hanif", email="naufalmng@gmail.com" },
 ]

@@ -12,7 +12,7 @@ class Sleuth:
             self,
             api_id,
             api_hash: str,
-            group_username,
+            username,
             start_date=None,
             end_date=None,
             download_path:str=None,
@@ -20,7 +20,7 @@ class Sleuth:
     ):
         self.api_id = api_id
         self.api_hash = api_hash
-        self.group_username = group_username
+        self.group_username = username
         self.start_date = start_date
         self.end_date = end_date
         self.print_to_console = print_to_console
@@ -28,7 +28,7 @@ class Sleuth:
         if not download_path:
             download_path = Path.cwd()
 
-        self.__base_path = fr"{download_path}\{group_username}"
+        self.__base_path = fr"{download_path}\{username}"
         self.__download_paths = [
             fr"{self.__base_path}\images",
             fr"{self.__base_path}\videos",
@@ -43,7 +43,7 @@ class Sleuth:
     '''
     Example Output:
         2023-11-20 15:32:10+00:00 - john_doe: Hello everyone!
-        2023-11-20 15:35:12+00:00 - john_doe sent an image: downloads/images/image1.jpg
+        2023-11-20 15:35:12+00:00 - john_doe sent a image: downloads/images/image1.jpg
     '''
     def dig(self) -> dict:
         # return dict of messages
@@ -64,8 +64,8 @@ class Sleuth:
 
                     # handle if end date condition true, should stop the app
                     if self.start_date and self.end_date:
-                        if message.date.astimezone(timezone.utc) == self.end_date:  # Exit if we've reached the end date
-                            exit()
+                        if message.date.astimezone(timezone.utc) >= self.end_date:  # Exit if we've reached the end date
+                            break
 
                     if message.sender is not None and message.text is not None:  # Print the message if it has a sender
                         username = message.sender.username
@@ -130,7 +130,7 @@ class Sleuth:
         self.start_date = (datetime.strptime(self.start_date, '%Y-%m-%d')
                            .replace(hour=0, minute=0, second=0, microsecond=0)).astimezone(timezone.utc)
         self.end_date = (datetime.strptime(self.end_date, '%Y-%m-%d')
-                         .replace(hour=11, minute=59, second=59, microsecond=59)).astimezone(timezone.utc)
+                         .replace(hour=23, minute=59, second=59, microsecond=999999)).astimezone(timezone.utc)
 
     def __get_download_path(self, file_type):
         return {
