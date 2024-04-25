@@ -9,13 +9,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "telegram_sleuth"
-version = "0.0.1.post5"
+version = "0.0.1.post6"
 authors = [
   { name="M Naufal Hanif", email="naufalmng@gmail.com" },
 ]
 description = "Extract and analyze data from Telegram group chats"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.6"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
