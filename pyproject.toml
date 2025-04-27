@@ -2,14 +2,13 @@
 requires = [
     "setuptools>=61.0",
     "telethon",
-    "beauty-print",
     "python-dateutil"
 ]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "telegram_sleuth"
-version = "0.0.1.post6"
+version = "0.0.1.post7"
 authors = [
   { name="M Naufal Hanif", email="naufalmng@gmail.com" },
 ]

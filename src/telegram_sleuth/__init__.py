@@ -2,10 +2,10 @@ import csv
 import re
 from datetime import datetime, timezone
 from dateutil.tz import tzlocal
-from bprint import bprint
 from telethon import TelegramClient
 from pathlib import Path
 from telethon.errors import ApiIdInvalidError, UsernameInvalidError
+
 
 class Sleuth:
     def __init__(
@@ -15,8 +15,8 @@ class Sleuth:
             username,
             start_date=None,
             end_date=None,
-            download_path:str=None,
-            print_to_console:bool=False
+            download_path: str = None,
+            print_to_console: bool = False
     ):
         self.api_id = api_id
         self.api_hash = api_hash
@@ -45,6 +45,7 @@ class Sleuth:
         2023-11-20 15:32:10+00:00 - john_doe: Hello everyone!
         2023-11-20 15:35:12+00:00 - john_doe sent a image: downloads/images/image1.jpg
     '''
+
     def dig(self) -> dict:
         # return dict of messages
         try:
@@ -76,25 +77,27 @@ class Sleuth:
 
                         if message.file is not None:  # Check if the message has a file
                             file_type = message.file.mime_type.split('/')[0]  # Get the file type
-                            download_path = self.__get_download_path(file_type)  # Get appropriate downloaded item path or default
+                            download_path = self.__get_download_path(
+                                file_type
+                            )  # Get appropriate downloaded item path or default
 
                             file = await message.download_media(file=download_path)  # Download the file
                             attached_file = (f'{(message.date.astimezone(tzlocal()))} - {message.sender.username}:'
-                                             f' sent a {file_type}: {file}') # format the attached file message
+                                             f' sent a {file_type}: {file}')  # format the attached file message
 
                         if username not in self.__data_dict:
                             self.__data_dict[username] = []
 
-                        self.__data_dict[username].append({str(message_date):message.text})
+                        self.__data_dict[username].append({str(message_date): message.text})
                         self.__messages.append(clean_message)
 
                         if attached_file:
                             self.__messages.append(attached_file)
 
                         if self.print_to_console == True:
-                            bprint(clean_message)
+                            print(clean_message)
                             if attached_file:
-                                bprint(attached_file)
+                                print(attached_file)
 
             self.__client.loop.run_until_complete(get_messages())  # Run the coroutine
             self.__client.disconnect()  # Disconnect the client
@@ -115,7 +118,7 @@ class Sleuth:
         Args: output_path: The path to the output CSV file.
         Returns: None.
         """
-        with open(output_path, "w",newline="", encoding="utf-8") as csvfile:
+        with open(output_path, "w", newline="", encoding="utf-8") as csvfile:
             csv_writer = csv.writer(csvfile)
             # Write data from list to csv
             for message in self.__messages:

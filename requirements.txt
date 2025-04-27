@@ -1,0 +1,11 @@
+DateTime==5.5
+pyaes==1.6.1
+pyasn1==0.6.1
+python-dateutil==2.9.0.post0
+pytz==2025.2
+rsa==4.9.1
+six==1.17.0
+Telethon==1.40.0
+tzdata==2025.2
+tzlocal==5.3.1
+zope.interface==7.2
